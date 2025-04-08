@@ -29,9 +29,9 @@ namespace DotnetPublishSsh
 
             if (!path.EndsWith("/")) path = path + "/";
 
-            localPath = Path.GetFullPath(localPath) + Path.DirectorySeparatorChar;
+            var localPathWww = Path.GetFullPath(localPath) + Path.DirectorySeparatorChar + "wwwroot" + Path.DirectorySeparatorChar;
 
-            var localFiles = GetLocalFiles(localPath);
+            var localFiles = GetLocalFiles(localPathWww);
 
             Console.WriteLine();
             Console.WriteLine($"Uploading {localFiles.Count} files to {options.User}@{options.User}:{options.Port}{options.Path}");
